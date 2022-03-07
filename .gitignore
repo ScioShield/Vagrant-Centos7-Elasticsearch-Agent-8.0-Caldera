@@ -1,0 +1,13 @@
+/.vagrant
+/AEtoken.txt
+/ca.crt
+/Eid.txt
+/elastic-agent-8.0.0-linux-x86_64.tar.gz
+/elastic-agent-8.0.0-linux-x86_64.tar.gz.sha512
+/elasticsearch-8.0.0-x86_64.rpm
+/elasticsearch-8.0.0-x86_64.rpm.sha512
+/kibana-8.0.0-x86_64.rpm
+/kibana-8.0.0-x86_64.rpm.sha512
+.vscode/settings.json
+elastic-agent-8.0.0-windows-x86_64.zip
+elastic-agent-8.0.0-windows-x86_64.zip.sha512
