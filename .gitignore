@@ -11,3 +11,4 @@
 .vscode/settings.json
 elastic-agent-8.0.0-windows-x86_64.zip
 elastic-agent-8.0.0-windows-x86_64.zip.sha512
+creds.txt
