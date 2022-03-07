@@ -10,7 +10,7 @@ done
 echo "online"
 
 # Install Elasticsearch, Kibana, and Unzip
-yum install -y unzip wget
+yum install -y unzip wget git screen gcc openssl-devel bzip2-devel libffi-devel zlib-devel xz-devel
 
 # Get the GPG key
 rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch
@@ -217,8 +217,6 @@ cat /root/Pid.txt | sed "s/\},{/'\n'/g" | grep "Default policy" | grep -oP '[0-9
 curl --silent --cacert /tmp/certs/ca/ca.crt -XGET "https://$DNS:$K_PORT/api/fleet/enrollment_api_keys" -H 'accept: application/json' -u elastic:$(sudo grep "generated password for the elastic" /root/ESUpass.txt | awk '{print $11}') | sed "s/\},{\|],/'\n'/g" | grep -E -m1 $(cat /root/Eid.txt) | grep -oP '[a-zA-Z0-9\=]{40,}' > /vagrant/AEtoken.txt
 
 # Caldera
-# yum
-yum install -y wget git screen gcc openssl-devel bzip2-devel libffi-devel zlib-devel xz-devel
 
 # python3
 wget -nc -q https://www.python.org/ftp/python/3.9.0/Python-3.9.0.tgz -P /usr/local/src
@@ -238,3 +236,5 @@ su -c 'curl https://sh.rustup.rs -sSf | sh -s -- -y' vagrant
 git clone https://github.com/mitre/caldera.git --recursive /usr/local/caldera --branch 3.1.0
 su -c '/usr/local/bin/python3.9 -m pip install -r /usr/local/caldera/requirements.txt' vagrant
 chown -R vagrant /usr/local/caldera/
+# TEMP fix for issues with breaking changes in MarkupSafe:2.1.0 see https://github.com/aws/aws-sam-cli/issues/3661
+su -c 'python3.9 -m pip install markupsafe==2.0.1' vagrant

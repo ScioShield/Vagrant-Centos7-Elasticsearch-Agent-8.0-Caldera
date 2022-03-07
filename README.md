@@ -24,7 +24,7 @@ Windows Powershell
 <code>Add-Content 'C:\Windows\System32\Drivers\etc\hosts' "(Vagrant host ip) elastic-8-sec"</code>  
 Linux Bash  
 <code>echo "(Vagrant host ip) elastic-8-sec" >> /etc/hosts</code>  
-
+  
 ## Kibana  
 Log into Kibana (local)  
 <code>https://10.0.0.10:5601</code>   
@@ -34,15 +34,15 @@ Log into Kibana (remote)
 Username: <code>elastic</code>  
 The password is printed to the console / terminal you ran <code>vagrant up</code> from  
 under the section <code>--Security autoconfiguration information--</code>  
-Log into Caldera (remote)  
-
+or on the Elastic VM issue <code>sudo cat /root/ESUpass.txt</code>  
+  
 ## Caldera  
 Start Caldera with  
 <code>vagrant ssh Elastic</code>  
 <code>screen</code>  
 <code>cd /usr/local/caldera/ && python3.9 server.py</code>  
 Take note of the users/passes  
-To exit the screen, but keep Caldera running, hit Ctrl+a+d
+To exit the screen, but keep Caldera running, hit Ctrl+a+d  
   
 Log into Caldera (local)  
 <code>http://10.0.0.10:8888</code>  
